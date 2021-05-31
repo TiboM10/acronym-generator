@@ -43,7 +43,8 @@ for e in range(10):
     exp = exps[e]
     print(exp)
     w = weights[e]
-    #w[5] = 0
+    w[2] = 0
+    w[3] = 0
     Acronym.grammar_weights = w
 
     for i in range(5):

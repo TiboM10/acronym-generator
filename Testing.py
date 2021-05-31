@@ -3,6 +3,12 @@ import Generator
 import Flair
 import numpy as np
 
+
+e=['national air and space agency','national space and air agency','air and space national agency','space air agency national and','and agency national space air']
+
+for w in e:
+        print(w, Flair.perplexity(w))
+
 # #print(Generator.beam_search_find_deep_neighbours('Disk and execution monitor',3))
 # exp = 'UNiversity of Cambridge Local Examinations Syndicate'
 #
@@ -25,27 +31,27 @@ import numpy as np
 #         'Keep It Simple Stupid'
 # ]
 
-exps = [
-        'Institute for MAgnetic Resonance Imaging',
-        'WATerbury Catholic High School',
-        'Barcelona international business school',
-        'European agency for worldwide development',
-        'strategy and business operations associate',
-        'Stanford Physics Information Retrieval System',
-        'Elastomeric Reusable Surface Insulation',
-        'IMprovise ADapt Overcome',
-        'Southern ORegon UNiversity',
-        'National Transport And Logistics company'
-]
-
-for e in exps:
-        # print(Generator.acronym_from_expression(e), Acronym.pronouncability(Generator.acronym_from_expression(e), e))
-        # print([(exp, Acronym.score_seq(Generator.acronym_from_expression(exp), exp)) for exp in Generator.generate_n_good_acros(e,5)])
-        # print(Generator.acronym_from_expression(e),':', e, ',', Acronym.score_seq(Generator.acronym_from_expression(e), e,False))
-        # neighbours = Generator.get_exclusively_neighbouring_acronyms(e)
-        # best_acros = Generator.generate_n_good_acros(e,10,1)
-        # if e in best_acros:
-        #     print(1 + best_acros.index(e), best_acros)
-        # else:
-        #     print('acro not found in', best_acros)
-        print(e,Generator.generate_n_good_acros(e,10,4))
+# exps = [
+#         'Institute for MAgnetic Resonance Imaging',
+#         'WATerbury Catholic High School',
+#         'Barcelona international business school',
+#         'European agency for worldwide development',
+#         'strategy and business operations associate',
+#         'Stanford Physics Information Retrieval System',
+#         'Elastomeric Reusable Surface Insulation',
+#         'IMprovise ADapt Overcome',
+#         'Southern ORegon UNiversity',
+#         'National Transport And Logistics company'
+# ]
+#
+# for e in exps:
+#         # print(Generator.acronym_from_expression(e), Acronym.pronouncability(Generator.acronym_from_expression(e), e))
+#         # print([(exp, Acronym.score_seq(Generator.acronym_from_expression(exp), exp)) for exp in Generator.generate_n_good_acros(e,5)])
+#         # print(Generator.acronym_from_expression(e),':', e, ',', Acronym.score_seq(Generator.acronym_from_expression(e), e,False))
+#         # neighbours = Generator.get_exclusively_neighbouring_acronyms(e)
+#         # best_acros = Generator.generate_n_good_acros(e,10,1)
+#         # if e in best_acros:
+#         #     print(1 + best_acros.index(e), best_acros)
+#         # else:
+#         #     print('acro not found in', best_acros)
+#         print(e,Generator.generate_n_good_acros(e,10,4))

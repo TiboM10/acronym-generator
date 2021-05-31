@@ -9,7 +9,7 @@ max_letters_per_word = 3  # standard 3
 min_letters_per_word = 0  # standard 0
 max_acronym_length = 10  # standard 10
 min_acronym_length = 1  # standard 1
-use_synonyms = True  # if true allow synonyms
+use_synonyms = False  # if true allow synonyms
 variable_word_order = False  # if true allow changes in word order
 variable_wordgroup_order = False  # if true allow changes in wordgroup order
 word_order_variable = variable_wordgroup_order or variable_word_order
@@ -215,7 +215,7 @@ def find_best_deep_neighbours(exp, depth): # todo some sort of caching
     return best_acros
 
 
-def statistical_beam_search_find_deep_neighbours(exp, depth, beta=20, p=0.9): # beta = 20, p = 0.9
+def stochastic_beam_search_find_deep_neighbours(exp, depth, beta=20, p=0.9): # beta = 20, p = 0.9
     # beta nb of exp that are expanded every step
     best_acros = {exp}
     for i in range(depth):
@@ -228,7 +228,7 @@ def statistical_beam_search_find_deep_neighbours(exp, depth, beta=20, p=0.9): # 
         if i == depth - 1:  # last iteration
             return all_neighbours
 
-        # select statistical new best acros from candidates
+        # select stochastic new best acros from candidates
         # pairwise tournament selection: select best with prob p
 
         new_best_acros = set()
@@ -259,7 +259,7 @@ def beam_search_find_deep_neighbours(exp, depth, beta=20):
         for e in best_acros:
             for n in get_neighbouring_acronyms(e):
                 all_neighbours.append(n)
-        # select statistical new best acros from candidates
+        # select stochastic new best acros from candidates
         # pairwise tournament selection: select best with prob p
         sorted(all_neighbours, key=lambda e: Acronym.score_seq(acronym_from_expression(e), e, word_order_variable), reverse=True)
 
@@ -270,7 +270,7 @@ def beam_search_find_deep_neighbours(exp, depth, beta=20):
 # return best acros, ranked on score
 def generate_acronyms(exp, depth):
     # search_algo = find_best_deep_neighbours
-    search_algo = statistical_beam_search_find_deep_neighbours
+    search_algo = stochastic_beam_search_find_deep_neighbours
     # search_algo = beam_search_find_deep_neighbours
     sorted_exps = sort_acros(search_algo(exp, depth))
     return sorted_exps
