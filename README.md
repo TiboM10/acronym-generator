@@ -11,7 +11,10 @@ Dependencies:
   Flair  
   nltk  
   gensim  
-  pronounceable  
- 
-Creates a vectors.kv file on first use if this file is not cloned 
+  pronounceable   
   
+  Also requires the enwiki-20190320-words-frequency.txt from https://github.com/IlyaSemenov/wikipedia-word-frequency  
+ 
+Creates a vectors.kv file on first use if this file is not cloned   
+  
+  These last two files are too big to upload
