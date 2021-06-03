@@ -13,5 +13,5 @@ Dependencies:
   gensim  
   pronounceable  
  
-Creates a vectors.kv file on first use  
+Creates a vectors.kv file on first use if this file is not cloned 
   
